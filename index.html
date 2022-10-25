@@ -1,0 +1,268 @@
+<html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dublr DEX</title>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/dublr/dublr/main/icon.svg">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css">
+        <link rel="stylesheet" href="/index.4fe7cf81.css">
+        <link rel="stylesheet" href="/index.83cbb356.css">
+    </head>
+    <body>
+        <img style="margin-left: auto; margin-right: auto; display: block" height="88pt" width="88pt" src="https://raw.githubusercontent.com/dublr/dublr/main/icon.svg">
+        
+        <h1>Dublr DEX</h1>
+        
+        <div style="text-align: center">
+            <button id="connect-wallet-button"><span id="connect-wallet-text">Connect to Wallet</span></button>
+            <br>
+            <div><span from-dataflow="networkInfo_out,networkInfoIsWarning_out:class:warning-text"></span></div>
+            <div><span from-dataflow="walletConnectionInfo_out,walletConnectionInfoIsWarning_out:class:warning-text"></span></div>
+            
+            <div style="margin-top: 8pt; padding: 8pt" from-dataflow="walletInfo_out"></div>
+        </div>
+
+        <div class="tab-wrap">
+			<input type="radio" id="tab1" name="tabGroup" class="tab" checked="">
+			<label for="tab1">About</label>
+		
+			<input type="radio" id="tab2" name="tabGroup" class="tab">
+			<label for="tab2">Orderbook</label>
+		
+			<input type="radio" id="tab3" name="tabGroup" class="tab">
+			<label for="tab3">Buy</label>
+		
+			<input type="radio" id="tab4" name="tabGroup" class="tab">
+			<label for="tab4">Sell</label>
+
+            <div class="tab__content">
+                <h3>The Dublr Decentralized Exchange (DEX)</h3>
+                <p><b>Dublr is an ultra-secure fungible token smart contract</b> that implements the ERC20 token standard, and several extensions: ERC1363, ERC4524, and EIP2612, as well as a number of security extensions to provide increased security in the area of ERC20 allowances.</p>
+                <p>Additionally, <b>Dublr implements its own built-in decentralized exchange (DEX) for decentralized finance (DeFi)</b>, so that DUBLR tokens can be bought and sold using the Dublr smart contract itself. <b>Dublr has the unique property that it is both a token and a DEX.</b></p>
+                <p>Dublr is deployed on the Polygon mainnet, therefore DUBLR tokens must be bought with Polygon MATIC (not ERC20 MATIC tokens on the Ethereum network).</p>
+                <p><b>Click "Connect to Wallet" above</b> to connect your MATIC wallet, to be able to start buying DUBLR tokens.</p>
+                <p><b>Minting:</b> Supply of DUBLR tokens is generated on-demand by minting, rather than by ICO or airdrop. Minting occurs when a buyer tries to buy tokens and there are no tokens listed for sale on the DEX below the mint price. (Minting may be disabled by any buyer.) The mint price grows exponentially, doubling every 90 days for 30 doubling periods (~7.5 years): the minting of DUBLR tokens becomes twice as expensive every 90 days, or 0.77% more expensive per day, on a compound interest curve. After 30 doubling periods, minting will be disabled, fixing total supply.</p>
+                <p><b>Economics:</b> Eventually as the mint price becomes exorbitant, but before minting is officially disabled after 30 doubling periods, it is expected that the cost of minting will become uneconomical, and the supply of tokens for sale below the mint price will meet or outstrip demand, thereby causing the total supply of tokens to behave as if it is effectively fixed and finite, and causing the DUBLR token to trade with the floating price governed by fixed supply vs. demand, as any other ERC20 token. However, this outcome is predicted only based on economic theory, and does not constitute financial advice or a prospectus, nor is there any guarantee of this outcome. See <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">Legal Agreement and Disclaimers</a> re. forward-looking statements.
+                </p><p><b>Security:</b> Extremely careful attention was paid to security in implementing Dublr, and all known smart contract vulnerabilities and attack vectors have been strongly mitigated or completely eliminated in <a href="https://github.com/dublr/dublr/tree/main/contracts/main/OmniToken" target="_blank">OmniToken</a>, the underlying token library that implements support for the supported token APIs, and in the <a href="https://github.com/dublr/dublr/tree/main/contracts/main/Dublr" target="_blank">Dublr DEX</a> layer. Both OmniToken and Dublr have successfully passed two different <a href="https://github.com/dublr/dublr/tree/audits" target="_blank">third-party security audits</a>. Full source code is available under an MIT license, and the code of the deployed contract can be <a target="_blank" from-dataflow="scanURL_out:attr:href">verified on the blockchain explorer</a>.
+                </p><p>Learn more at the <a href="https://github.com/dublr/dublr" target="_blank">main Dublr GitHub page</a>.</p>
+
+                <h3>Disclaimers for US SEC compliance:</h3>
+                <p>The name "Dublr" describes only the growth of the mint price, not the profitability of DUBLR tokens, or the growth of any fair market value of DUBLR tokens. The growth of the mint price sets a hard <i>upper</i> bound on how fast the price of DUBLR can grow relative to the network currency (<span from-dataflow="networkCurrency"></span>), enforced by increasing total supply of tokens to meet demand whenever the demand outstrips the supply of tokens for sale below the mint price. There is no <i>lower</i> bound on price, and minting is an inherently deflationary activity, so there are no guarantees or promises, express or implied, about the profitability of purchasing DUBLR tokens. The purchasing, sale, and use of DUBLR tokens is entirely at the purchaser's own risk. DUBLR tokens may not be able to be sold without incurring loss, or may not be able to be sold at all if there is insufficient demand. Collected fees will not be used to fund ongoing development, marketing, or any other action beneficial to DUBLR token holders, and cannot be used to fund ongoing maintenance or improvement of the Dublr smart contract code, since no changes can be made to the deployed Dublr contract code after deployment. Therefore, any MATIC spent to mint or sell DUBLR tokens does not constitute investment in a common enterprise. By buying, selling, or using DUBLR tokens, you signify that you agree to the Dublr <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">Legal Agreement and Disclaimers</a>.</p>
+
+                <h3>EU "Cookie Law" compliance:</h3>
+                <p>By continuing to use this dapp, you consent to the storage of a small amount of data in your browser. This dapp stores UI state via IndexedDB in order to improve user experience by persisting state across sessions. The stored information includes UI element state, such as the currently selected tab and checkbox values, which wallet is connected, and whether the DUBLR token has been added to your wallet (so that you are not prompted more than once to add the token). None of this information is transmitted. Additionally, your connected wallet may store state. If you are using a shared or public machine, you should only access this dapp in an incognito tab, so that all state (including the connection to your wallet) is erased when you close the tab.</p>
+            </div>
+
+            <div class="tab__content">
+                <h3>Orderbook</h3>
+
+                <p>Tokens currently listed for sale on the Dublr decentralized exchange (the Dublr DEX) are listed below, in increasing order of list price. Only tokens listed at or below the mint price may be bought (the mint price increases over time). The Dublr DEX implements only the sell side of the exchange.</p>
+                
+                <article class="card" style="margin-top: 12pt">
+                    <header>Depth chart</header>
+                    <footer>
+                        <div style="width: 100%; height: 240px">
+                            <canvas style="width: 100%; height: 100%" id="depthChartCanvas"></canvas>
+                        </div>
+                        <div style="margin-top: 12pt" from-dataflow="mouseoverDetails_out"></div>
+                    </footer>
+                </article>
+
+                <article class="card">
+                    <header>Sell orders</header>
+                    <footer>
+                        <div from-dataflow="orderbookTable_out"></div>
+                        <div style="text-align: center; margin: 12pt" from-dataflow="orderbookNote_out"></div>
+                    </footer>
+                </article>
+            </div>
+            
+            <div class="tab__content">
+                <h3>Buy DUBLR tokens using <span from-dataflow="networkCurrency"></span>:</h3>
+                
+                <p>DUBLR tokens may be bought or minted in exchange for <span from-dataflow="networkCurrency"></span>. Tokens are bought from sell orders listed in the orderbook of the built-in decentralized exchange (DEX), in increasing order of price, until the current mint price is reached, after which new tokens are minted at the current mint price using any remaining <span from-dataflow="networkCurrency"></span> balance.</p>
+                <p>There are no market taker fees for buying tokens listed on the built-in DEX. All <span from-dataflow="networkCurrency"></span> that is spent to mint new tokens is collected as a nonrefundable minting fee.</p>
+                
+                <form autocomplete="off">
+                    <article class="card" style="margin-top: 12pt">
+                        <header>
+                            Parameters
+                        </header>
+                        <footer>
+                        
+                            <label>
+                                <input type="checkbox" checked="true" to-dataflow-on-change="allowBuying" from-dataflow="allowBuying:attr:checked">
+                                <span class="checkable">
+                                    Allow buying of sell orders
+                                </span>
+                            </label>
+                            <br>
+                            <label>
+                                <input type="checkbox" checked="true" to-dataflow-on-change="allowMinting" from-dataflow="allowMinting:attr:checked">
+                                <span class="checkable">
+                                    Allow minting of new tokens
+                                </span>
+                            </label>
+                            
+                            <div style="margin-top: 12pt">
+                                <label for="buyAmountInput">
+                                    Amount to spend on DUBLR tokens (<span from-dataflow="networkCurrency"></span>)
+                                    <span class="tooltip-icon">
+                                        <img src="/tooltip.57940acc.svg" width="15pt" height="15pt">
+                                    </span>
+                                    <div class="tooltip-content">
+                                        This is the amount of your wallet's <span from-dataflow="networkCurrency"></span> balance to spend to buy DUBLR tokens.
+                                    </div>
+                                </label>
+                                <input id="buyAmountInput" type="text" value="1.0" to-dataflow-on-input="buyAmount_in">
+                                <span from-dataflow="amountUSDEquiv_out"></span>
+                            </div>
+                            <div>
+                                <span class="warning-text" from-dataflow="buyAmountWarning_out"></span>
+                            </div>
+                            <div>
+                                <span class="warning-text" style="text-align: center; display: block" from-dataflow="buyGasEstWarning_out"></span>
+                            </div>
+
+                            <div style="margin-top: 12pt">
+                                <label for="maxSlippageInput">
+                                    Max allowable slippage (%)
+                                    <span class="tooltip-icon">
+                                        <img src="/tooltip.57940acc.svg" width="15pt" height="15pt">
+                                    </span>
+                                    <div class="tooltip-content">
+                                        This is the maximum allowable slippage, as a percentage (0-100) of total DUBLR tokens bought. This sets a bound on any loss that may be incurred by a sudden unexpected increase in token price, due to race conditions (two buyers trying to buy the same sell order at the same time) and MEV attacks (Miner Extractable Value attacks, such as frontrunning attacks).
+                                    </div>
+                                </label>
+                                <input id="maxSlippageInput" type="text" value="1" to-dataflow-on-input="maxSlippage_in">
+                            </div>
+                            <span class="warning-text" from-dataflow="slippageLimitWarning_out"></span>
+                        </footer>
+                    </article>
+
+                    <div from-dataflow="executionPlan_out"></div>
+
+                    <div style="text-align: center; margin-top: 18pt">
+                        <label>
+                            <input type="checkbox" to-dataflow-on-change="termsBuy_in" from-dataflow="termsBuy_out:attr:checked" id="termsBuy">
+                            <span class="checkable">I agree to the Dublr
+                                <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">
+                                    Legal Agreement and Disclaimers</a>.</span>
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin: 12pt">
+                        <button id="buyButton" disabled="" from-dataflow="buyButtonDisabled_out:attr:disabled">
+                                Buy DUBLR tokens</button>
+                        <br>
+                        <span class="status-text" from-dataflow="buyStatus_out,buyStatusIsWarning_out:class:warning-text"></span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab__content">
+
+                <h3>List DUBLR tokens for sale in exchange for <span from-dataflow="networkCurrency"></span>:</h3>
+
+                <p>DUBLR tokens may be listed for sale in exchange for <span from-dataflow="networkCurrency"></span> spent by buyers. While DUBLR tokens are listed for sale, the listed amount is deducted from the spendable DUBLR balance of the seller, to prevent double-spending. If the sell order is canceled before all listed DUBLR tokens are bought, unbought DUBLR tokens are returned to the seller's wallet balance. Only one sell order may be listed at a given time for a given wallet.</p><p>
+                </p><p>If DUBLR tokens that are listed for sale and are bought by a buyer, the <span from-dataflow="networkCurrency"></span> value paid by the buyer is transferred to the seller, minus a fee of 0.15% (this is half the 0.3% fee of Uniswap, and less than the total market maker+taker fee for Binance of 0.2%).</p>
+                
+                <form autocomplete="off">
+                    <article class="card" style="margin-top: 12pt">
+                        <header>
+                            Price
+                        </header>
+                        <footer>
+                            <div>
+                                <label for="listPriceInput">
+                                    List price (<span from-dataflow="networkCurrency"></span> per DUBLR)
+                                    <span class="tooltip-icon">
+                                        <img src="/tooltip.57940acc.svg" width="15pt" height="15pt">
+                                    </span>
+                                    <div class="tooltip-content">
+                                        This is the price to list your DUBLR tokens for on the Dublr DEX (decentralized exchange). The price is in <span from-dataflow="networkCurrency"></span> per DUBLR (erroneously written in the form DUBLR/<span from-dataflow="networkCurrency"></span> on most exchanges).
+                                        <br><br>
+                                        Buyers buy tokens in increasing order of price, until the mint price is reached, at which point new tokens are minted. Therefore, your sell order cannot be purchased by a buyer until there are no cheaper sell orders listed for sale in the orderbook, and your list price is less than or equal to the current mint price.
+                                    </div>
+                                </label>
+                                <input id="listPriceInput" type="text" to-dataflow-on-input="listPrice_in" from-dataflow="listPrice_out:attr:value">
+                            </div>
+                            <span class="warning-text" from-dataflow="listPriceWarning_out"></span>
+                            <div>
+                                <span>[Current mint price: <span class="num" from-dataflow="mintPrice_out">(unknown)</span>]
+                            </span></div>
+
+                            <div style="margin-top: 12pt">
+                                <label for="sellAmountInput">
+                                    Amount to list for sale (DUBLR)
+                                    <span class="tooltip-icon">
+                                        <img src="/tooltip.57940acc.svg" width="15pt" height="15pt">
+                                    </span>
+                                    <div class="tooltip-content">
+                                        This is the number of DUBLR tokens you want to sell. The number cannot exceed your wallet DUBLR balance, but must exceed a minimum equivalent <span from-dataflow="networkCurrency"></span> value at the list price (no tiny sell orders are allowed, to save buyers from having to pay exorbitant gas fees).
+                                    </div>
+                                </label>
+                                <input id="sellAmountInput" type="text" to-dataflow-on-input="sellAmount_in" from-dataflow="sellAmount_out:attr:value">
+                            </div>
+                            <span class="warning-text" from-dataflow="sellAmountWarning_out"></span>
+                            
+                            <div style="margin-top: 12pt">                            
+                                <span from-dataflow="sellValues_out"></span>
+                            </div>
+                            <div style="text-align: center; margin: 12pt">
+                                <span class="warning-text" style="text-align: center; display: block" from-dataflow="sellGasEstWarning_out"></span>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <div style="text-align: center; margin-top: 18pt">
+                        <label>
+                            <input type="checkbox" to-dataflow-on-change="termsSell_in" from-dataflow="termsSell_out:attr:checked" id="termsSell">
+                            <span class="checkable">I agree to the Dublr
+                                <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">
+                                    Legal Agreement and Disclaimers</a>.</span>
+                        </label>
+                    </div>
+                    <div style="text-align: center; margin: 12pt">
+                        <button id="sellButton" disabled="" from-dataflow="sellButtonDisabled_out:attr:disabled">
+                                List DUBLR tokens for sale</button>
+                        <br>
+                        <span class="status-text" from-dataflow="sellStatus_out,sellStatusIsWarning_out:class:warning-text"></span>
+                    </div>
+
+                    <article class="card" style="margin-top: 32pt; display: none" from-dataflow="sellVizDisplay_out:style:display">
+                        <header>
+                            Your active sell order
+                        </header>
+                        <footer>
+                            <span style="text-align: center; max-width: 460px; margin-left: auto; margin-right: auto; display: block">
+                                (Placing another sell order will automatically cancel and replace this order, or it can be manually canceled here)</span>
+                            <div style="margin-top: 12pt" from-dataflow="mySellOrderTable_out"></div>
+                            <div style="text-align: center; margin: 12pt">
+                                <button id="cancelButton" disabled="" from-dataflow="cancelButtonDisabled_out:attr:disabled">
+                                        Cancel active sell order</button>
+                                <br>
+                                <div style="text-align: center; margin: 12pt">
+                                    <span class="warning-text" style="text-align: center; display: block" from-dataflow="cancelGasEstWarning_out"></span>
+                                </div>
+                                <span class="status-text" from-dataflow="cancelStatus_out,cancelStatusIsWarning_out:class:warning-text"></span>
+                            </div>
+                        </footer>
+                    </article>
+                </form>
+            </div>
+        </div>
+
+        <div style="text-align: center">
+            <span from-dataflow="txLogs_out,txLogsIsWarning_out:class:warning-text"></span>
+        </div>
+
+        <br><br>
+       
+        <!-- TODO: add Google Analytics tracker -->
+        <script type="module" src="/index.0277771e.js"></script>
+    </body>
+</html>
+
+</html>

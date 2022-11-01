@@ -59,7 +59,7 @@ gtag("config", "G-7Q9H9SV9TQ");
                 </p><p>Learn more at the <a href="https://github.com/dublr/dublr" target="_blank">main Dublr GitHub page</a>.</p>
 
                 <h3>Disclaimers for US SEC compliance:</h3>
-                <p>The name "Dublr" describes only the growth of the mint price, not the profitability of DUBLR tokens, or the growth of any fair market value of DUBLR tokens. The growth of the mint price sets a hard <i>upper</i> bound on how fast the price of DUBLR can grow relative to the network currency (<span from-dataflow="networkCurrency"></span>), enforced by increasing total supply of tokens to meet demand whenever the demand outstrips the supply of tokens for sale below the mint price. There is no <i>lower</i> bound on price, and minting is an inherently deflationary activity, so there are no guarantees or promises, express or implied, about the profitability of purchasing DUBLR tokens. The purchasing, sale, and use of DUBLR tokens is entirely at the purchaser's own risk. DUBLR tokens may not be able to be sold without incurring loss, or may not be able to be sold at all if there is insufficient demand. DUBLR Tokens may not be used for any illegal purpose, including money laundering Collected fees will not be used to fund ongoing development, marketing, or any other action beneficial to DUBLR token holders, and cannot be used to fund ongoing maintenance or improvement of the Dublr smart contract code, since no changes can be made to the deployed Dublr contract code after deployment. Therefore, any MATIC spent to mint or sell DUBLR tokens does not constitute investment in a common enterprise. By buying, selling, or using DUBLR tokens, you signify that you agree to the full Dublr <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">Legal Agreement and Disclaimers</a>.</p>
+                <p>The name "Dublr" describes only the growth of the mint price, not the profitability of DUBLR tokens, or the growth of any fair market value of DUBLR tokens. The growth of the mint price sets a hard <i>upper</i> bound on how fast the price of DUBLR can grow relative to <span from-dataflow="networkCurrency"></span>, enforced by increasing total supply of tokens to meet demand whenever the demand outstrips the supply of tokens for sale below the mint price. There is no <i>lower</i> bound on price, and minting is an inherently deflationary activity, so there are no guarantees or promises, express or implied, about the profitability of purchasing DUBLR tokens. The purchasing, sale, and use of DUBLR tokens is entirely at the purchaser's own risk. DUBLR tokens may not be able to be sold without incurring loss, or may not be able to be sold at all if there is insufficient demand. DUBLR Tokens may not be used for any illegal purpose, including money laundering Collected fees will not be used to fund ongoing development, marketing, or any other action beneficial to DUBLR token holders, and cannot be used to fund ongoing maintenance or improvement of the Dublr smart contract code, since no changes can be made to the deployed Dublr contract code after deployment. Therefore, any MATIC spent to mint or sell DUBLR tokens does not constitute investment in a common enterprise. By buying, selling, or using DUBLR tokens, you signify that you agree to the full Dublr <a href="https://github.com/dublr/dublr/blob/main/LEGAL.md" target="_blank">Legal Agreement and Disclaimers</a>.</p>
 
                 <h3>EU "Cookie Law" compliance:</h3>
                 <p>By continuing to use this dapp, you consent to the storage of a small amount of data in your browser. This dapp stores UI state via IndexedDB in order to improve user experience by persisting state across sessions. The stored information includes UI element state, such as the currently selected tab and checkbox values, which wallet is connected, and whether the DUBLR token has been added to your wallet (so that you are not prompted more than once to add the token). None of this information is transmitted. Additionally, your connected wallet may store state. If you are using a shared or public machine, you should only access this dapp in an incognito tab, so that all state (including the connection to your wallet) is erased when you close the tab.</p>
@@ -69,8 +69,6 @@ gtag("config", "G-7Q9H9SV9TQ");
                 <h3>Orderbook</h3>
 
                 <p>Tokens currently listed for sale on the Dublr decentralized exchange (the Dublr DEX) are listed below, in increasing order of list price. Only tokens listed at or below the mint price may be bought (the mint price increases over time). The Dublr DEX implements only the sell side of the exchange.</p>
-
-                <div><span class="warning-text" from-dataflow="needToConnect_out"></span></div>
                 
                 <article class="card" style="margin-top: 12pt">
                     <header>Depth chart</header>
@@ -96,7 +94,9 @@ gtag("config", "G-7Q9H9SV9TQ");
                 
                 <p>DUBLR tokens may be bought or minted in exchange for <span from-dataflow="networkCurrency"></span>. Tokens are bought from sell orders listed in the orderbook of the built-in decentralized exchange (DEX), in increasing order of price, until the current mint price is reached, after which new tokens are minted at the current mint price using any remaining <span from-dataflow="networkCurrency"></span> balance.</p>
                 <p>There are no market taker fees for buying tokens listed on the built-in DEX. All <span from-dataflow="networkCurrency"></span> that is spent to mint new tokens is collected as a nonrefundable minting fee.</p>
-                
+
+                <div><span class="warning-text" from-dataflow="needToConnect_out"></span></div>
+
                 <form autocomplete="off">
                     <article class="card" style="margin-top: 12pt">
                         <header>
@@ -180,7 +180,9 @@ gtag("config", "G-7Q9H9SV9TQ");
 
                 <p>DUBLR tokens may be listed for sale in exchange for <span from-dataflow="networkCurrency"></span> spent by buyers. While DUBLR tokens are listed for sale, the listed amount is deducted from the spendable DUBLR balance of the seller, to prevent double-spending. If the sell order is canceled before all listed DUBLR tokens are bought, unbought DUBLR tokens are returned to the seller's wallet balance. Only one sell order may be listed at a given time for a given wallet.</p><p>
                 </p><p>If DUBLR tokens that are listed for sale and are bought by a buyer, the <span from-dataflow="networkCurrency"></span> value paid by the buyer is transferred to the seller, minus a fee of 0.15% (this is half the 0.3% fee of Uniswap, and less than the total market maker+taker fee for Binance of 0.2%).</p>
-                
+
+                <div><span class="warning-text" from-dataflow="needToConnect_out"></span></div>
+
                 <form autocomplete="off">
                     <article class="card" style="margin-top: 12pt">
                         <header>
@@ -276,7 +278,7 @@ gtag("config", "G-7Q9H9SV9TQ");
 
         <br><br>
        
-        <script type="module" src="/index.f914b721.js"></script>
+        <script type="module" src="/index.c733191c.js"></script>
     </body>
 </html>
 
